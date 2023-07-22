@@ -30,15 +30,15 @@ return {
           server = {
             settings = {
               ["rust-analyzer"] = {
-                cargo = {
-                  allFeatures = true,
-                  -- loadOutDirsFromCheck = true,
-                  runBuildScripts = true,
-                },
                 -- Add clippy lints for Rust.
                 checkOnSave = {
                   allFeatures = true,
                   command = "clippy",
+                },
+                cargo = {
+                  allFeatures = true,
+                  loadOutDirsFromCheck = true,
+                  runBuildScripts = true,
                 },
                 procMacro = {
                   enable = true,
@@ -52,9 +52,7 @@ return {
             },
           },
         })
-        require("rust-tools").setup({
-          server = rust_tools_opts,
-        })
+        require("rust-tools").setup(rust_tools_opts)
         return true
       end,
       -- Specify * to use this function as a fallback for any server
