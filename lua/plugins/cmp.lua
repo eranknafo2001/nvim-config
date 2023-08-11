@@ -13,7 +13,14 @@ return {
         end
       end
     end
-
+    -- added it for the crate.nvim plugin
+    vim.api.nvim_create_autocmd("BufRead", {
+      group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+      pattern = "Cargo.toml",
+      callback = function()
+        cmp.setup.buffer({ sources = { { name = "crates" } } })
+      end,
+    })
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<C-k>"] = cmp.mapping(
         only_if_visible(function()
