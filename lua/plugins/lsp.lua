@@ -3,7 +3,7 @@ return {
   dependencies = {
     "simrat39/rust-tools.nvim",
     init = function()
-      require("lazyvim.util").on_attach(function(_, buffer)
+      require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- stylua: ignore
               -- Hover actions
         local rt = require("rust-tools")
