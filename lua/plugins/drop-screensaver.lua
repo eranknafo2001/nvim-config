@@ -1,7 +1,7 @@
 return {
   {
     "folke/drop.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     config = function()
       -- local theme = ({ "stars", "snow" })[math.random(1, 3)]
