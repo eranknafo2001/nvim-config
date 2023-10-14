@@ -29,6 +29,27 @@ return {
       blue = "#51afef",
       red = "#ec5f67",
     }
+    local mode_color = {
+      n = colors.orange,
+      i = colors.green,
+      v = colors.blue,
+      V = colors.blue,
+      c = colors.magenta,
+      no = colors.red,
+      s = colors.orange,
+      S = colors.orange,
+      [""] = colors.orange,
+      ic = colors.yellow,
+      R = colors.violet,
+      Rv = colors.violet,
+      cv = colors.red,
+      ce = colors.red,
+      r = colors.cyan,
+      rm = colors.cyan,
+      ["r?"] = colors.cyan,
+      ["!"] = colors.red,
+      t = colors.red,
+    }
     local config = {
       options = {
         -- Disable sections and component separators
@@ -38,7 +59,12 @@ return {
           -- We are going to use lualine_c an lualine_x as left and
           -- right section. Both are highlighted by c theme .  So we
           -- are just setting default looks o statusline
-          normal = { c = { fg = colors.fg, bg = colors.bg } },
+          normal = {
+            c = {
+              bg = colors.bg,
+              fg = colors.fg,
+            },
+          },
           inactive = { c = { fg = colors.fg, bg = colors.bg } },
         },
       },
@@ -73,27 +99,6 @@ return {
       table.insert(config.sections.lualine_x, component)
     end
 
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [""] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ["r?"] = colors.cyan,
-      ["!"] = colors.red,
-      t = colors.red,
-    }
     ins_left({
       function()
         return "▊"
@@ -105,7 +110,7 @@ return {
     ins_left({
       -- mode component
       function()
-        return ""
+        return "i󰥺"
       end,
       color = function()
         -- auto change color according to neovims mode
