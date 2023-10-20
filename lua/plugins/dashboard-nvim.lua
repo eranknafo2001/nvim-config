@@ -37,7 +37,7 @@ return {
   } },
 
   {
-    "glepnir/dashboard-nvim",
+    "nvimdev/dashboard-nvim",
     opts = function(_, opts)
       local get_random_ascii_art = function()
         local ascii_meneger = require("ascii")

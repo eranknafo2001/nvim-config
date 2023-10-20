@@ -6,6 +6,9 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+    dependencies = {
+      "folke/flash.nvim",
+    },
     config = function()
       require("nvim-surround").setup({
         keymaps = {
