@@ -4,8 +4,8 @@ in {
   autoCmd = [
     {
       event = ["FileType"];
-      pattern = ["qf" "help" "man" "lspinfo" "spectre_panel"];
-      desc = "Close quickfix and spectre_panel";
+      pattern = ["qf" "help" "man" "lspinfo" "spectre_panel" "DressingSelect"];
+      desc = "Quick close for some windows";
       group = "my";
       callback = mkRaw ''
         function()

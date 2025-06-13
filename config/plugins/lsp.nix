@@ -13,14 +13,7 @@ in {
     };
     blink-cmp = {
       enable = true;
-      lazyLoad.settings = {
-        lazy = true;
-        # before = mkRaw ''
-        #   function()
-        #     require("lz.n").trigger_load("blink-compat")
-        #   end
-        # '';
-      };
+      lazyLoad.settings.lazy = true;
       settings = {
         enabled = mkRaw ''
           function()
