@@ -15,14 +15,14 @@
       url = "github:ravitemer/mcphub.nvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
+        flake-parts.follows = "flake-parts";
       };
     };
     mcp-hub = {
       url = "github:ravitemer/mcp-hub";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
+        flake-parts.follows = "flake-parts";
       };
     };
   };

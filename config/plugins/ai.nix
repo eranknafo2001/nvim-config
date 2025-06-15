@@ -25,6 +25,21 @@ in {
       enable = true;
       lazyLoad.settings.event = "DeferredUIEnter";
       settings = {
+        provider = "openai";
+        providers = {
+          openai-4o-mini = {
+            __inherited_from = "openai";
+            model = "o4-mini";
+          };
+          openai-4-1 = {
+            __inherited_from = "openai";
+            model = "gpt-4.1";
+          };
+          claude-4 = {
+            __inherited_from = "claude";
+            model = "claude-sonnet-4-20250514";
+          };
+        };
         system_prompt = mkRaw ''
           function()
             local hub = require("mcphub").get_hub_instance()
