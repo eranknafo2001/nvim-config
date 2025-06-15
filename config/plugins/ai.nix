@@ -1,4 +1,11 @@
-_: {
+{
+  mcphub-nvim,
+  mcp-hub,
+  lib,
+  ...
+}: let
+  inherit (lib.nixvim) mkRaw;
+in {
   plugins = {
     supermaven = {
       enable = true;
@@ -18,6 +25,19 @@ _: {
       enable = true;
       lazyLoad.settings.event = "DeferredUIEnter";
       settings = {
+        system_prompt = mkRaw ''
+          function()
+            local hub = require("mcphub").get_hub_instance()
+            return hub and hub:get_active_servers_prompt() or ""
+          end
+        '';
+        custom_tools = mkRaw ''
+          function()
+            return {
+                require("mcphub.extensions.avante").mcp_tool(),
+            }
+          end
+        '';
         input = {
           provider = "snacks";
           provider_opts = {
@@ -29,4 +49,9 @@ _: {
       };
     };
   };
+  extraPlugins = [mcphub-nvim];
+  extraPackages = [mcp-hub];
+  extraConfigLua = ''
+    require("mcphub").setup()
+  '';
 }

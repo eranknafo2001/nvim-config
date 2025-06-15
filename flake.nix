@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
+    mcp-hub.url = "github:ravitemer/mcp-hub";
   };
 
   outputs = {
@@ -31,7 +33,9 @@
           inherit pkgs;
           module = import ./config;
           extraSpecialArgs = {
-            inherit pkgs lib;
+            inherit pkgs lib inputs;
+            mcphub-nvim = inputs.mcphub-nvim.packages.${system}.default;
+            mcp-hub = inputs.mcp-hub.packages.${system}.default;
           };
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
