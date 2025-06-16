@@ -1,0 +1,35 @@
+{
+  "mcpServers": {
+    "context7": {
+      "args": [
+        "x",
+        "@upstash/context7-mcp"
+      ],
+      "mcpID": "github.com/upstash/context7-mcp",
+      "name": "context7",
+      "command": "bun"
+    }
+  },
+  "nativeMCPServers": {
+    "neovim": {
+      "disabled_resources": [
+        
+      ],
+      "disabled_tools": [
+        
+      ],
+      "autoApprove": [
+        "list_directory",
+        "find_files"
+      ],
+      "disabled_prompts": [
+        "parrot"
+      ]
+    },
+    "mcphub": {
+      "disabled_prompts": [
+        "create_native_server"
+      ]
+    }
+  }
+}

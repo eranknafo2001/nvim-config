@@ -2,6 +2,7 @@
   mcphub-nvim,
   mcp-hub,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib.nixvim) mkRaw;
@@ -65,8 +66,12 @@ in {
     };
   };
   extraPlugins = [mcphub-nvim];
-  extraPackages = [mcp-hub];
+  extraPackages = [pkgs.bun];
   extraConfigLua = ''
-    require("mcphub").setup()
+    require("mcphub").setup({
+        port = 3000,
+        config = "${./mcphub-server.json}",
+        cmd = "${mcp-hub}/bin/mcp-hub"
+    })
   '';
 }
