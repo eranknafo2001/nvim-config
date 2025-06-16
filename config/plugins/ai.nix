@@ -26,7 +26,7 @@ in {
       enable = true;
       lazyLoad.settings.event = "DeferredUIEnter";
       settings = {
-        provider = "openai";
+        provider = "claude-4";
         providers = {
           openai-4o-mini = {
             __inherited_from = "openai";
