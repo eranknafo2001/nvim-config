@@ -171,15 +171,9 @@ in {
         '';
         formatters_by_ft = {
           rust = mkRaw ''{ "rustfmt", lsp_format = "fallback" }'';
-          svelte =
-            mkRaw ''
-              { "prettier", lsp_format = "fallback", stop_after_first = true }'';
-          javascript =
-            mkRaw ''
-              { "prettier", lsp_format = "fallback", stop_after_first = true }'';
-          typescript =
-            mkRaw ''
-              { "prettier", lsp_format = "fallback", stop_after_first = true }'';
+          svelte = ["prettier"];
+          javascript = ["prettier"];
+          typescript = ["prettier"];
           nix = ["alejandra"];
         };
         notify_on_error = true;
